@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.4.2/contracts/access/Ownable.sol";
 
 contract SugarsV1 is Ownable {
-    address public protocolFeeDestination;
-    uint256 public protocolFeePercent;
-    uint256 public subjectFeePercent;
+    address public protocolFeeDestination = 0xfC63e21994256c24013C1D673540E6fCB9F6E8aa; // multi-sig account
+    uint256 public protocolFeePercent = 50000000000000000;// 5% fee
+    uint256 public subjectFeePercent = 50000000000000000;// 5% fee
 
     event Trade(
         address trader,
@@ -23,17 +23,17 @@ contract SugarsV1 is Ownable {
 
     mapping(address => uint256) public keysSupply;
 
-    function setFeeDestination(address _feeDestination) public onlyOwner {
-        protocolFeeDestination = _feeDestination;
-    }
+    // function setFeeDestination(address _feeDestination) public onlyOwner {
+    //     protocolFeeDestination = _feeDestination;
+    // }
 
-    function setProtocolFeePercent(uint256 _feePercent) public onlyOwner {
-        protocolFeePercent = _feePercent;
-    }
+    // function setProtocolFeePercent(uint256 _feePercent) public onlyOwner {
+    //     protocolFeePercent = _feePercent;
+    // }
 
-    function setSubjectFeePercent(uint256 _feePercent) public onlyOwner {
-        subjectFeePercent = _feePercent;
-    }
+    // function setSubjectFeePercent(uint256 _feePercent) public onlyOwner {
+    //     subjectFeePercent = _feePercent;
+    // }
 
     function getPrice(
         uint256 supply,
